@@ -1,10 +1,8 @@
-<div class="chat-item" [class.active]="isActive">
-    <div class="avatar" style="background-image: url('https://aif-s3.aif.ru/images/018/249/b7a5d57b005bc19f6eeae875b9ddc5e4.jpg')"></div>
+<div class="chat-item" [class.active]="chat.active">
+    <div class="avatar" [ngStyle]="{'background-image':' url(' + chat?.avatar + ')'}"></div>
 
     <div class="messages">
-        <span class="name">
-            Name
-        </span>
-        <p class="message">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo eaque velit nam quos et aperiam impedit rerum placeat</p>
+        <span class="name"><span *ngIf="chat.isBot">Bot: </span>{{chat.name}}</span>
+        <p class="message">{{chat.lastMessage}}</p>
     </div>
 </div>

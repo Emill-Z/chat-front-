@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChatItemComponent implements OnInit {
 
-  @Input() isActive: boolean = false;
+  @Input() chat = null;
 
   constructor() { }
 
