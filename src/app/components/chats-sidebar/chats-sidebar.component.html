@@ -1,0 +1,7 @@
+<aside class="chats-sidebar">
+    <div class="chats-list">
+        <ng-container *ngFor="let chat of chats">
+            <chat-item [isActive]="chat.id === 2"></chat-item>
+        </ng-container>
+    </div>
+</aside>
