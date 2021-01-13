@@ -46,8 +46,10 @@ $avatarWidth: 50px;
     text-overflow: ellipsis;
     white-space: pre;
     font-size: 13px;
-    font-family: 'RobotoT', sans-serif;
+    font-family: 'RobotoL', sans-serif;
+    color: $textDark;
     padding-top: 5px;
+    padding-right: 10px;
 }
 
 .active {
@@ -61,7 +63,7 @@ $avatarWidth: 50px;
     height: 10px;
     background-color: $blue;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 4px $darck;
+    box-shadow: 0px 0px 0px 4px $dark;
   }
 
   .messages {
