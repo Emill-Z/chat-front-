@@ -2,7 +2,7 @@
     <div class="avatar" [ngStyle]="{'background-image':' url(' + chat?.avatar + ')'}"></div>
 
     <div class="messages">
-        <span class="name"><span *ngIf="chat.isBot">Bot: </span>{{chat.name}}</span>
+        <span class="name">{{chat.name}}</span>
         <p class="message">{{chat.lastMessage}}</p>
     </div>
 </div>

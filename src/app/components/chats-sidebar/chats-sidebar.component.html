@@ -1,6 +1,9 @@
 <aside class="chats-sidebar">
     <div class="chats-list">
-        <ng-container *ngFor="let chat of chats">
+        <div *ngIf="!rooms.length">
+            Loading ...
+        </div>
+        <ng-container *ngFor="let chat of rooms">
             <chat-item
                 [chat]="chat"
             ></chat-item>

@@ -6,19 +6,33 @@ import { AppComponent } from './app.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { ChatsSidebarComponent } from './components/chats-sidebar/chats-sidebar.component';
 import { ChatItemComponent } from './components/chats-sidebar/components/chat-item/chat-item.component';
+import { UserService } from './common/http-services/User.service';
+import { AuthInterceptor } from './common/http-services/AuthInterceptor.interceptor';
+import { DataAdapter } from '../app/data-adapter/data-adapter.service';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   declarations: [
     AppComponent,
     ChatRoomComponent,
     ChatsSidebarComponent,
     ChatItemComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+  providers: [
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    UserService,
+    DataAdapter,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

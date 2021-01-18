@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataAdapter } from './data-adapter/data-adapter.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'front';
+
+  public rooms = [];
+
+  constructor(
+    private _dataAdapter: DataAdapter,
+  ) { 
+    this._dataAdapter.getMe().subscribe((data) => {
+      this.rooms = data.rooms;
+    });
+  }
 }
