@@ -7,9 +7,11 @@ const path = 'http://localhost:3000';
 @Injectable()
 export class UserService {
 
-    constructor(public readonly httpClient: HttpClient) { }
+  protected BASE_URL = '/api';
 
-    public get(): Observable<any> {
-        return this.httpClient.get<any>(`${path}/me`);
-    }
+  constructor(public readonly httpClient: HttpClient) { }
+
+  public get(): Observable<any> {
+    return this.httpClient.get<any>(`${path}${this.BASE_URL}/me`);
+  }
 }

@@ -1,4 +1,7 @@
-<div class="chat-item" [class.active]="chat.active">
+<div
+  class="chat-item" [class.active]="chat.active"
+  (click)="onClick(chat.id)"
+>
     <div class="avatar" [ngStyle]="{'background-image':' url(' + chat?.avatar + ')'}"></div>
 
     <div class="messages">
