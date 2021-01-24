@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ModuleAuthGuard } from './common/guards/module-auth-guard';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'chat',
+    canLoad: [ModuleAuthGuard],
     loadChildren: () => import('./modules/chat/chat.module').then(m => m.ChatModule),
   },
   {

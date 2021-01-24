@@ -3,10 +3,12 @@ import { InjectionToken, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserService } from './common/http-services/User.service';
-import { AuthInterceptor } from './common/http-services/AuthInterceptor.interceptor';
+import { UserService } from './common/services/user.service';
+import { AuthInterceptor } from './common/services/auth.interceptor';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import config from '../appConfig';
+import { AuthService } from './common/services/auth.service';
+// import config from '../appConfig';
+import { ModuleAuthGuard } from './common/guards/module-auth-guard';
 
 // export const AppConfig = new InjectionToken('AppConfig');
 
@@ -31,6 +33,8 @@ import config from '../appConfig';
     //   provide: AppConfig,
     //   useValue: config
     // },
+    AuthService,
+    ModuleAuthGuard,
   ],
   bootstrap: [AppComponent]
 })

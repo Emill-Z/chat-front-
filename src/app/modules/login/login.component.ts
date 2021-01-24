@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+
+  public isLoginState: boolean = true;
 
   constructor() { }
 
-  ngOnInit(): void {}
+  public onSwitchToSignUp(data): void {
+    this.isLoginState = data;
+  }
+
+  onClick() {
+    // Implement graphql login
+  }
+
+  onInput(event) {
+    const login = event.target.value;
+  }
 
 
 }
