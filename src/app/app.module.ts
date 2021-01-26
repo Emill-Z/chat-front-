@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { AuthService } from './common/services/auth.service';
 // import config from '../appConfig';
 import { ModuleAuthGuard } from './common/guards/module-auth-guard';
+import { GraphQLModule } from './graphql.module';
 
 // export const AppConfig = new InjectionToken('AppConfig');
 
@@ -17,6 +18,7 @@ import { ModuleAuthGuard } from './common/guards/module-auth-guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    GraphQLModule,
   ],
   declarations: [
     AppComponent,
