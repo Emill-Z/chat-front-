@@ -25,7 +25,7 @@ export class ChatRoomComponent implements OnInit {
   ngOnInit(): void {}
 
   private createWsRoom(): void {
-    this._wsService.socket.emit('createRoom', { roomId: this.roomId });
+    // this._wsService.socket.emit('createRoom', { roomId: this.roomId });
   }
 
 }

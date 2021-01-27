@@ -1,25 +1,10 @@
 import { Component } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
-
-const CREATE_USER = gql`
-  mutation CreateUser($id: ID!, $name: String!, $email: String!){
-    signUp(input: { id: $id, name: $name, email: $email } ) {
-      id,
-      name,
-      email,
-    }
-  }
-`;
-
-const GET_USER = gql(`
-  {
-    # me(id: "1") {
-    me {
-      id,
-      name
-    }
-  }
-`);
+import { Router } from '@angular/router';
+import { Apollo } from 'apollo-angular';
+import { RespDataI } from 'src/app/common/models/graphql.interface';
+import { AuthService } from 'src/app/common/services/auth.service';
+import { CREATE_USER } from "../../common/qraphql/user/user.mutation";
+import { SignUpI } from '../../common/models/user.interface';
 
 @Component({
   selector: 'login',
@@ -30,8 +15,13 @@ export class LoginComponent {
 
   public isLoginState: boolean = true;
 
+  email = 'email@gmail.com';
+  name = null;
+
   constructor(
-    private apolloProvider: Apollo
+    private readonly apolloProvider: Apollo,
+    private readonly router: Router,
+    private readonly auth: AuthService,
   ) { }
 
   public onSwitchToSignUp(data): void {
@@ -42,25 +32,24 @@ export class LoginComponent {
     this.apolloProvider.mutate({
       mutation: CREATE_USER,
       variables: {
-        id: 1,
-        name: 'UserName',
-        email: 'email@gmail.com',
+        name: this.name,
+        email: this.email,
       }
     })
-    .subscribe((data) => { });
-  }
-
-  onClickGet() {
-    this.apolloProvider
-      .watchQuery({ query: GET_USER })
-      .valueChanges
-      .subscribe((data) => {
-        console.log(data);
-      });
+    .subscribe((resp: RespDataI<SignUpI>) => {
+      if (resp?.data.signUp?.id) {
+        this.auth.login('TOKEN_dcdccdcdc');
+        this.router.navigate(['chat']);
+      }
+    });
   }
 
   onInput(event) {
-    const login = event.target.value;
+    this.email = event.target.value;
+  }
+
+  onInputName(event) {
+    this.name = event.target.value;
   }
 
 }

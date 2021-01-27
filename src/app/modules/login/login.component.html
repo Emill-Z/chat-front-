@@ -11,7 +11,9 @@
 
 <!-- Placeholder -->
 
-<input type="text" (input)="onInput($event)">
+<div>
+  <input placeholder="Name" type="text" (input)="onInputName($event)"> <br><br>
+  <input placeholder="Email" type="text" (input)="onInput($event)" value="email@gmail.com"> <br><br>
 
-<button (click)="onClick()">Post</button>
-<button (click)="onClickGet()">Get</button>
+  <button (click)="onClick()">Login</button>
+</div>

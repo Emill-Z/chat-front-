@@ -3,16 +3,16 @@ import { Router, CanLoad } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
-export class ModuleAuthGuard implements CanLoad {
+export class ModuleAuthRedirectGuard implements CanLoad {
 
   constructor(
-    private readonly auth: AuthService,
-    private readonly router: Router
+    public auth: AuthService,
+    public router: Router
   ) { }
 
   canLoad(): Promise<boolean> | boolean {
-    if (!this.auth.isAuthenticated()) {
-      return this.router.navigate(['login']);
+    if (this.auth.isAuthenticated()) {
+      return this.router.navigate(['chat']);
     }
     return true;
   }
