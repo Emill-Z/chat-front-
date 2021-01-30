@@ -7,11 +7,13 @@ import { ChatComponent } from './chat.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { CommonModule } from '@angular/common';
 import { ChatRoutingModule } from './chat.routes';
+import { IrisFieldsModule } from 'src/app/common/modules/fields/fields.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ChatRoutingModule,
+    IrisFieldsModule,
   ],
   declarations: [
     ChatComponent,

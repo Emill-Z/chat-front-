@@ -11,6 +11,24 @@ export class ChatsSidebarComponent implements OnInit {
 
   @Input() rooms: any[] = [];
 
+  public list = [
+    {
+      id: 1,
+      name: 'Ivasuk',
+      avatar: null,
+    },
+    {
+      id: 2,
+      name: 'IvasukDDDD d d',
+      avatar: null,
+    },
+    {
+      id: 3,
+      name: 'Ivasuk TGtgtdgcdcdc',
+      avatar: null,
+    },
+  ];
+
   constructor(
     private readonly auth: AuthService,
     private readonly router: Router

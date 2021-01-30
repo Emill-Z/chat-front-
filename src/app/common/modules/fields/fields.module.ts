@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputFieldComponent } from './input-field/input-field.component';
+import { SelectFieldComponent } from './select-field/select-field.component';
 
 @NgModule({
   imports: [
@@ -8,10 +9,12 @@ import { InputFieldComponent } from './input-field/input-field.component';
   ],
   declarations: [
     InputFieldComponent,
+    SelectFieldComponent,
   ],
   entryComponents: [],
   exports: [
     InputFieldComponent,
+    SelectFieldComponent,
   ]
 })
 export class IrisFieldsModule {

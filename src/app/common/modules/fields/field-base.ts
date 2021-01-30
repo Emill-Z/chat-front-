@@ -5,6 +5,7 @@ export class FieldBase {
 
   @Input() type: string = 'text';
   @Input() label: string;
+  @Input() trackBy = 'id';
 
   // @ViewChild('input') input: ElementRef;
 

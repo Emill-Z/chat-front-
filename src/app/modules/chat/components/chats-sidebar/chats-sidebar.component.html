@@ -1,15 +1,18 @@
 <aside class="chats-sidebar">
-    <div class="chats-list">
-        <div *ngIf="!rooms.length">
-            Loading ...
-        </div>
-        <ng-container *ngFor="let chat of rooms">
-            <chat-item
-                [chat]="chat"
-            ></chat-item>
-        </ng-container>
-        <div (click)="onLogout()">
-          Logout
-        </div>
+
+  <select-field [entities]="list"></select-field>
+
+  <div class="chats-list">
+    <div *ngIf="!rooms.length">
+        Loading ...
     </div>
+    <ng-container *ngFor="let chat of rooms">
+        <chat-item
+            [chat]="chat"
+        ></chat-item>
+    </ng-container>
+    <div (click)="onLogout()">
+      Logout
+    </div>
+  </div>
 </aside>
