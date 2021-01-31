@@ -8,18 +8,24 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { CommonModule } from '@angular/common';
 import { ChatRoutingModule } from './chat.routes';
 import { IrisFieldsModule } from 'src/app/common/modules/fields/fields.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MessageComponent } from './components/chat-room/components/message/message.component';
+import { WriteMessageComponent } from './components/chat-room/components/write-message/write-message.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ChatRoutingModule,
     IrisFieldsModule,
+    MatIconModule,
   ],
   declarations: [
     ChatComponent,
     ChatItemComponent,
     ChatsSidebarComponent,
     ChatRoomComponent,
+    MessageComponent,
+    WriteMessageComponent,
   ],
   providers: [
     DataAdapter,

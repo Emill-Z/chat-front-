@@ -1,0 +1,24 @@
+<fieldset class="fieldset">
+  <input
+    #field
+    matInput
+    class="inp-field"
+    type="text"
+    [placeholder]="placeholder"
+    [matAutocomplete]="auto"
+    [formControl]="control"
+  >
+
+  <mat-autocomplete
+    autoActiveFirstOption #auto="matAutocomplete"
+    [displayWith]="displayFn"
+  >
+    <mat-option
+      *ngFor="let item of filteredEntities"
+      [value]="item"
+      (click)="onSelect(item[trackBy])"
+    >
+      {{item[showBy]}}
+    </mat-option>
+  </mat-autocomplete>
+</fieldset>

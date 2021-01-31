@@ -4,21 +4,27 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthService {
 
+  private key = '_userChatApp';
+
   constructor(
     // public jwtHelper: JwtHelperService
   ) { }
   // ...
 
-  public login(token: string): void {
-    localStorage.setItem('token', token);
+  public login(user: any): void {
+    localStorage.setItem(this.key, JSON.stringify(user));
+  }
+
+  public getUser() {
+    return JSON.parse(localStorage.getItem(this.key));
   }
 
   public logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem(this.key);
   }
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.key);
     // // Check whether the token is expired and return
     // // true or false
     // return !this.jwtHelper.isTokenExpired(token);

@@ -1,0 +1,14 @@
+<div class="message-block">
+  <div class="user">
+    <div class="avatar" [ngStyle]="{'background-image':' url(' + message?.owner.avatar + ')'}"></div>
+  </div>
+  <div class="message-detail">
+    <div class="info">
+      <span class="name">{{message?.owner.name}}</span>
+      <span class="time">{{message?.time || '12.02.20 12:00'}}</span>
+    </div>
+    <p class="message-txt">
+      {{message?.text}}
+    </p>
+  </div>
+</div>

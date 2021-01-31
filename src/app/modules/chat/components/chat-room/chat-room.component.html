@@ -1,17 +1,26 @@
 <section class="chat-room-main-section">
+
+  <ng-container *ngIf="roomId; else placeholder">
     <div class="chat-room-header">
-        #your destiny
+      <span class="room-name">{{room?.name || 'Room'}}</span> <span *ngIf="false">is typing ...</span>
     </div>
 
     <section class="chat-room-section">
-        <div *ngIf="!roomId" class="placeholder-wrapper">
-            <img class="placeholder" src="https://www.searchpng.com/wp-content/uploads/2019/02/Chat-PNG-Icon.png" alt="">
-            <span>Please select a chat to start messaging</span>
-        </div>
-        <!-- <div>UserName is typing ...</div> -->
+      <message
+        *ngFor="let message of messages"
+        [message]="message"
+      ></message>
     </section>
 
     <section class="chat-room-input-section">
-        <textarea placeholder="Write a message..." class="textarea"></textarea>
+      <write-message (sendMessage)="onSendMessage($event)"></write-message>
     </section>
+  </ng-container>
+
+  <ng-template #placeholder>
+    <div class="placeholder-wrapper">
+      <img class="placeholder" src="https://www.searchpng.com/wp-content/uploads/2019/02/Chat-PNG-Icon.png" alt="">
+      <span>Please select a chat to start messaging</span>
+    </div>
+  </ng-template>
 </section>

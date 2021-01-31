@@ -2,68 +2,74 @@
 @import '../../../../../fonts.scss';
 
 :host {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .chat-room-main-section {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .chat-room {
-    &-header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        border-bottom: 1px solid $silver;
-    }
+  &-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid $silver;
+    padding: 0 10px;
+    z-index: 1;
+    background: $dark;
+  }
 
-    &-section {
-        width: 100%;
-        height: 100%;
-        padding: 50px 0 60px 0;
-    }
+  &-section {
+    width: 100%;
+    height: calc(100% - 55px);
+    padding: 70px 15px 20px 15px;
+    overflow: auto;
+  }
 
-    &-input-section {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        border-top: 1px solid $silver;
+  &-input-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid $silver;
 
-        .textarea {
-            width: 100%;
-            padding: 10px;
-            background-color: transparent;
-            border: none;
-            color: white;
-            outline: none;
-            font-family: 'RobotoR', sans-serif;
-        }
+    .textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      font-family: 'RobotoR', sans-serif;
     }
+  }
 }
 
 .placeholder-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .placeholder {
-        width: 300px;
-        opacity: .1;
-    }
+  .placeholder {
+    width: 300px;
+    opacity: .1;
+  }
 
-    span {
-        position: absolute;
-        font-family: 'RobotoL', sans-serif;
-        font-size: 17px;
-        color: $textDark;
-    }
+  span {
+    position: absolute;
+    font-family: 'RobotoL', sans-serif;
+    font-size: 17px;
+    color: $textDark;
+  }
 }

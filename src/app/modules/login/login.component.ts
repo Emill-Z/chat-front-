@@ -38,7 +38,8 @@ export class LoginComponent {
     })
     .subscribe((resp: RespDataI<SignUpI>) => {
       if (resp?.data.signUp?.id) {
-        this.auth.login('TOKEN_dcdccdcdc');
+        const newUser = resp.data.signUp;
+        this.auth.login(newUser);
         this.router.navigate(['chat']);
       }
     });

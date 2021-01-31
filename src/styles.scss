@@ -2,13 +2,35 @@
 @import './fonts.scss';
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: $dark;
-    color: $text;
-    margin: 0;
-    padding: 0;
-    font-family: 'RobotoR', sans-serif;
+  background-color: $dark;
+  color: $text;
+  margin: 0;
+  padding: 0;
+  font-family: 'RobotoR', sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.inp-field {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #7654c4;
+  outline: none;
+  color: white;
+  padding: 10px 5px;
+}
+
+.pointer {
+  cursor: pointer;
 }

@@ -1,18 +1,28 @@
 <aside class="chats-sidebar">
 
-  <select-field [entities]="list"></select-field>
+  <autocomplete-field
+    [entities]="availableRooms"
+    placeholder="Search"
+    [resetAfterSelect]="true"
+    (select)="onSelectNewRoom($event)"
+  ></autocomplete-field>
 
   <div class="chats-list">
-    <div *ngIf="!rooms.length">
-        Loading ...
+    <div class="no-rooms" *ngIf="!rooms?.length">
+      Find someone to start messaging
     </div>
+
     <ng-container *ngFor="let chat of rooms">
-        <chat-item
-            [chat]="chat"
-        ></chat-item>
+      <chat-item
+        [chat]="chat"
+        (click)="onSelectRoom(chat.id)"
+      ></chat-item>
     </ng-container>
-    <div (click)="onLogout()">
-      Logout
+
+    <div class="footer">
+      <div class="icon-wrapper pointer" (click)="onLogout()">
+        <span>Logout</span> <mat-icon aria-hidden="false">logout</mat-icon>
+      </div>
     </div>
   </div>
 </aside>

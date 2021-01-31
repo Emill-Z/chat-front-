@@ -2,10 +2,10 @@
   class="chat-item" [class.active]="chat.active"
   (click)="onClick(chat.id)"
 >
-    <div class="avatar" [ngStyle]="{'background-image':' url(' + chat?.avatar + ')'}"></div>
+  <div class="avatar" [ngStyle]="{'background-image':' url(' + chat?.avatar + ')'}"></div>
 
-    <div class="messages">
-        <span class="name">{{chat.name}}</span>
-        <p class="message">{{chat.lastMessage}}</p>
-    </div>
+  <div class="messages">
+    <span class="name">{{chat.name}}</span>
+    <p class="message">{{chat.lastMessage}}</p>
+  </div>
 </div>

@@ -1,40 +1,35 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/common/services/auth.service';
+import { DataAdapter } from '../../data-adapter/data-adapter.service';
 
 @Component({
   selector: 'chats-sidebar',
   templateUrl: './chats-sidebar.component.html',
   styleUrls: ['./chats-sidebar.component.scss']
 })
-export class ChatsSidebarComponent implements OnInit {
+export class ChatsSidebarComponent {
 
   @Input() rooms: any[] = [];
 
-  public list = [
-    {
-      id: 1,
-      name: 'Ivasuk',
-      avatar: null,
-    },
-    {
-      id: 2,
-      name: 'IvasukDDDD d d',
-      avatar: null,
-    },
-    {
-      id: 3,
-      name: 'Ivasuk TGtgtdgcdcdc',
-      avatar: null,
-    },
-  ];
+  public availableRooms = [];
 
   constructor(
     private readonly auth: AuthService,
-    private readonly router: Router
-  ) { }
+    private readonly router: Router,
+    private _dataAdapter: DataAdapter,
+  ) {
+    this._dataAdapter.queryRooms().subscribe(({ data }) => {
+      this.availableRooms = data.rooms;
+    });
+  }
 
-  ngOnInit(): void {
+  public onSelectNewRoom(id: number): void {
+    this._dataAdapter.joinRoom(id);
+  }
+
+  public onSelectRoom(id: number): void {
+    console.log('onSelectRoom: ', id);
   }
 
   onLogout() {

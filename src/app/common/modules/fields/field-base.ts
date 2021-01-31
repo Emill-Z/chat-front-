@@ -1,17 +1,14 @@
-import { Directive, ElementRef, Input, ViewChild } from "@angular/core";
+import { Directive, Input } from "@angular/core";
 
 @Directive()
 export class FieldBase {
 
-  @Input() type: string = 'text';
   @Input() label: string;
+  @Input() placeholder = '';
+  @Input() type = 'text';
   @Input() trackBy = 'id';
-
-  // @ViewChild('input') input: ElementRef;
+  @Input() showBy = 'name';
 
   constructor() { }
-
-  // this.input.nativeElement.focus();
-
 
 }
