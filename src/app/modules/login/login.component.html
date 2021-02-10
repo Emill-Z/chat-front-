@@ -1,19 +1,11 @@
-<!-- <section>
+<section>
+  <login-switcher (state)="onStateChange($event)"></login-switcher>
+
   <ng-container *ngIf="isLoginState; else signup">
-    <sign-in (switchToSignUp)="onSwitchToSignUp($event)"></sign-in>
+    <sign-in></sign-in>
   </ng-container>
 </section>
 
 <ng-template #signup>
   <sign-up></sign-up>
-</ng-template> -->
-
-
-<!-- Placeholder -->
-
-<div>
-  <input placeholder="Name" type="text" (input)="onInputName($event)"> <br><br>
-  <input placeholder="Email" type="text" (input)="onInput($event)" value="email@gmail.com"> <br><br>
-
-  <button (click)="onClick()">Login</button>
-</div>
+</ng-template>

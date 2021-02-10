@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
+import { MeI } from '../models/user.interface';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()
 export class AuthService {
 
-  private key = '_userChatApp';
+  private key = 'chat_app_tn';
+
+  // public config = {
+  //   me: null,
+  // };
 
   constructor(
     // public jwtHelper: JwtHelperService
   ) { }
   // ...
 
-  public login(user: any): void {
-    localStorage.setItem(this.key, JSON.stringify(user));
+  public login({ token, id }: MeI): void {
+    localStorage.setItem(this.key, JSON.stringify({ id, token }));
   }
 
-  public getUser() {
+  public getUser(): MeI {
+    if (!this.isAuthenticated()) { return null; }
     return JSON.parse(localStorage.getItem(this.key));
   }
 
@@ -24,10 +30,10 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem(this.key);
+    const data = JSON.parse(localStorage.getItem(this.key));
     // // Check whether the token is expired and return
     // // true or false
     // return !this.jwtHelper.isTokenExpired(token);
-    return !!token;
+    return !!data?.token;
   }
 }

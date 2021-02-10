@@ -3,13 +3,7 @@ import { DataAdapter } from './data-adapter/data-adapter.service';
 import { WebsocketService } from '../../common/services/websocket.service';
 import { RespDataI } from 'src/app/common/models/graphql.interface';
 import { AuthService } from 'src/app/common/services/auth.service';
-
-interface MeI {
-  me: {
-    id: string;
-    rooms: any;
-  }
-}
+import { MeI } from 'src/app/common/models/user.interface';
 
 @Component({
   selector: 'chat',
@@ -34,10 +28,10 @@ export class ChatComponent {
   private init(): void {
     // TODO: unsubscribe
     // https://apollo-angular.com/docs/data/queries/
-    const id = this.authService.getUser()?.id;
+    const { id } = this.authService.getUser();
     if (!id) { return; }
 
-    this._dataAdapter.getMe(Number(id)).subscribe((resp: RespDataI<MeI>) => {
+    this._dataAdapter.getMe(Number(id)).subscribe((resp: RespDataI<{ me: MeI}>) => {
       if (resp?.data.me) {
         this.rooms = resp.data.me.rooms;
         this._dataAdapter.setUser(resp.data.me);

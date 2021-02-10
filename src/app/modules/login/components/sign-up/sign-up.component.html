@@ -1,18 +1,40 @@
-<section>
+<form [formGroup]="formGroup">
   <div>
-    <input-field label="Name"></input-field>
-  </div>
-  <div>
-    <input-field label="Email"></input-field>
-  </div>
-  <div>
-    <input-field label="Password" type="password"></input-field>
-  </div>
-  <div>
-    <input-field label="Confirm password" type="password"></input-field>
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Name"
+    >
   </div>
 
   <div>
-    <button>Sign up</button>
+    <input
+      type="text"
+      formControlName="email"
+      placeholder="Email"
+    >
   </div>
-</section>
+
+  <div>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Password"
+    >
+  </div>
+
+  <div>
+    <input
+      type="password"
+      formControlName="confirmPassword"
+      placeholder="Confirm password"
+    >
+  </div>
+
+  <div>
+    <button
+      type="button"
+      (click)="onSubmit()"
+    >Sign up</button>
+  </div>
+</form>

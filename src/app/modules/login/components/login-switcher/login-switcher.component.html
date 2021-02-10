@@ -1,0 +1,15 @@
+<div>
+  <button
+    class="login-switcher"
+    [class.active]="isLoginState"
+    type="button"
+    (click)="switchToSign(true)"
+  >Login</button>
+
+  <button
+    class="login-switcher"
+    type="button"
+    [class.active]="!isLoginState"
+    (click)="switchToSign(false)"
+  >Registration</button>
+</div>

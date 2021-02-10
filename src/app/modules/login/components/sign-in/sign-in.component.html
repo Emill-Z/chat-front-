@@ -1,13 +1,25 @@
-<section>
+<form [formGroup]="formGroup">
   <div>
-    <input-field label="Email"></input-field>
+    <input
+      type="text"
+      formControlName="email"
+      placeholder="Email"
+    >
+    <!-- <input-field label="Email"></input-field> -->
   </div>
   <div>
-    <input-field label="Password" type="password"></input-field>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Password"
+    >
+    <!-- <input-field label="Password" type="password"></input-field> -->
   </div>
 
   <div>
-    <button type="button">Login</button>
-    <button type="button" (click)="onSwitchToSignUp()">Sign up</button>
+    <button
+      type="button"
+      (click)="onSubmit()"
+    >Sign in</button>
   </div>
-</section>
+</form>
