@@ -64,8 +64,8 @@ export class AutocompleteFieldComponent extends FieldBase implements OnInit, OnD
     return this.entities.filter(option => option[this.showBy].toLowerCase().includes(filterValue));
   }
 
-  public onSelect(id: number|string): void {
-    this.select.emit(+id);
+  public onSelect(item): void {
+    this.select.emit(item);
     if (this.resetAfterSelect) {
       this.control.setValue('');
       this.field.nativeElement.blur();

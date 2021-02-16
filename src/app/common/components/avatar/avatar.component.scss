@@ -1,0 +1,21 @@
+// @import '../../../../variables.scss';
+
+$avatarSize: 50px;
+
+.avatar {
+  position: relative;
+  width: $avatarSize;
+  height: $avatarSize;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: green;
+}

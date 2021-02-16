@@ -18,7 +18,7 @@ export class ChatItemComponent implements OnInit {
   }
 
   public onClick(roomId: number): void {
-    this.dataAdapter.selectRoom(roomId);
+    // this.dataAdapter.selectRoom(roomId);
   }
 
 }

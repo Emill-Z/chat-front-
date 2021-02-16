@@ -1,55 +1,50 @@
 @import '../../../../../../../variables.scss';
 @import '../../../../../../../fonts.scss';
 
-$avatarWidth: 50px;
-
+$avatarSize: 50px;
 
 .chat-item {
   width: 100%;
   display: grid;
   grid-template-rows: 55px;
-  grid-template-columns: $avatarWidth calc(100% - #{$avatarWidth});
+  grid-template-columns: $avatarSize calc(100% - #{$avatarSize});
   margin-bottom: 25px;
   padding-left: 10px;
   cursor: pointer;
 }
 
 .avatar {
-    position: relative;
-    width: $avatarWidth;
-    height: 50px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: relative;
+  width: $avatarSize;
+  height: $avatarSize;
+  flex-shrink: 0;
 }
 
 .name {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .messages {
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 10px;
-    border-bottom: 1px solid $silver;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  border-bottom: 1px solid $silver;
 }
 
 .message {
-    width: 100%;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: pre;
-    font-size: 13px;
-    font-family: 'RobotoL', sans-serif;
-    color: $textDark;
-    padding-top: 5px;
-    padding-right: 10px;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+  font-size: 13px;
+  font-family: 'RobotoL', sans-serif;
+  color: $textDark;
+  padding-top: 5px;
+  padding-right: 10px;
 }
 
 .active {

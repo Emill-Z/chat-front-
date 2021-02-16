@@ -16,7 +16,7 @@
     <mat-option
       *ngFor="let item of filteredEntities"
       [value]="item"
-      (click)="onSelect(item[trackBy])"
+      (click)="onSelect(item)"
     >
       {{item[showBy]}}
     </mat-option>

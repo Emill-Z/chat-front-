@@ -15,7 +15,7 @@ export class ChatComponent {
   public rooms = [];
 
   constructor(
-    private _dataAdapter: DataAdapter,
+    private dataAdapter: DataAdapter,
     private _wsService: WebsocketService,
     private readonly authService: AuthService
   ) {
@@ -31,12 +31,22 @@ export class ChatComponent {
     const { id } = this.authService.getUser();
     if (!id) { return; }
 
-    this._dataAdapter.getMe(Number(id)).subscribe((resp: RespDataI<{ me: MeI}>) => {
+    this.dataAdapter.getMe(Number(id)).subscribe((resp: RespDataI<{ me: MeI}>) => {
       if (resp?.data.me) {
-        this.rooms = resp.data.me.rooms;
-        this._dataAdapter.setUser(resp.data.me);
+        // this.rooms = resp.data.me.rooms;
+        this.dataAdapter.setUser(resp.data.me);
       }
-    })
+    });
+
+    this.dataAdapter.selectedRoom$.subscribe((user => {
+      if (!user) { return; }
+      this.rooms.push({
+        avatar: null,
+        active: false,
+        lastMessage: null,
+        ...user
+      });
+    }));
   }
 
 }

@@ -11,6 +11,7 @@ import { IrisFieldsModule } from 'src/app/common/modules/fields/fields.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MessageComponent } from './components/chat-room/components/message/message.component';
 import { WriteMessageComponent } from './components/chat-room/components/write-message/write-message.component';
+import { AvatarComponent } from '../../common/components/avatar/avatar.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { WriteMessageComponent } from './components/chat-room/components/write-m
     ChatRoomComponent,
     MessageComponent,
     WriteMessageComponent,
+    AvatarComponent,
   ],
   providers: [
     DataAdapter,

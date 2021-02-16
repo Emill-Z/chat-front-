@@ -1,10 +1,16 @@
 <fieldset class="fieldset">
- <mat-form-field class="block">
+ <!-- <mat-form-field class="block">
     <textarea
       #field
       matInput
       placeholder="Write a message..."
       [formControl]="control"
     ></textarea>
-  </mat-form-field>
+  </mat-form-field> -->
+
+  <textarea
+    #field
+    style="width: 100%;"
+    [formControl]="control"
+  ></textarea>
 </fieldset>

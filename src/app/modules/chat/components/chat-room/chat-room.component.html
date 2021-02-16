@@ -1,6 +1,6 @@
 <section class="chat-room-main-section">
 
-  <ng-container *ngIf="roomId; else placeholder">
+  <ng-container *ngIf="room?.id; else placeholder">
     <div class="chat-room-header">
       <span class="room-name">{{room?.name || 'Room'}}</span> <span *ngIf="false">is typing ...</span>
     </div>

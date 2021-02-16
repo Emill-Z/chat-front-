@@ -1,7 +1,10 @@
 <div>
   <textarea-field (changeText)="onChangeText($event)"></textarea-field>
 
-  <button class="btn pointer" mat-mini-fab color="primary" (click)="onSend()">
+  <!-- <button class="btn pointer" mat-mini-fab color="primary" (click)="onSend()">
     <mat-icon>send</mat-icon>
+  </button> -->
+  <button class="btn pointer" (click)="onSend()">
+    Send
   </button>
 </div>

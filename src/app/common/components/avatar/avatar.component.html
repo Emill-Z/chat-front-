@@ -1,0 +1,9 @@
+<div
+  *ngIf="entity.avatar"
+  class="avatar"
+  [ngStyle]="{'background-image':' url(' + entity.avatar + ')'}"
+></div>
+
+<div *ngIf="!entity.avatar" class="avatar placeholder">
+  <span>{{entity.name[0]}}</span>
+</div>

@@ -9,7 +9,7 @@ import { RespDataI } from "../../../common/models/graphql.interface";
 @Injectable()
 export class DataAdapter {
 
-  public readonly selectRoom$: BehaviorSubject<number> = new BehaviorSubject(null);
+  public readonly selectedRoom$: BehaviorSubject<any> = new BehaviorSubject(null);
   public readonly user$: BehaviorSubject<any> = new BehaviorSubject(null);
 
   constructor(
@@ -17,8 +17,8 @@ export class DataAdapter {
     private readonly apolloProvider: Apollo,
   ) { }
 
-  public selectRoom(roomId: number): void {
-    this.selectRoom$.next(roomId);
+  public selectUser(user): void {
+    this.selectedRoom$.next(user);
   }
 
   private apolloQuery(queryType, variables = null): Observable<RespDataI<unknown>> {
@@ -31,12 +31,13 @@ export class DataAdapter {
     return this.apolloQuery(GET_USER, { id });
   }
 
-  // public queryUsers(): Observable<RespDataI<any>> {
-  //   return this.apolloQuery(GET_USERS);
-  // }
-
+  // @TODO: REMOVE IT
   public queryRooms(): Observable<RespDataI<any>> {
     return this.apolloQuery(GET_ROOMS);
+  }
+
+  public queryUsers(): Observable<RespDataI<any>> {
+    return this.apolloQuery(GET_USERS);
   }
 
   public setUser(user): void {
@@ -44,11 +45,12 @@ export class DataAdapter {
   }
 
   public joinRoom(id: number): void {
-    const config = {
-      ownerId: +this.user$.value.id,
-      isPrivate: true,
-      participants: [id],
-    };
-    console.log(config);
+    // const config = {
+    //   ownerId: +this.user$.value.id,
+    //   isPrivate: true,
+    //   participants: [id],
+    // };
+    // console.log(config);
+    console.log(id);
   }
 }

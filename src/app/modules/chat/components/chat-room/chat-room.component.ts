@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { WebsocketService } from '../../../../common/services/websocket.service';
 import { DataAdapter } from '../../data-adapter/data-adapter.service';
 
@@ -7,7 +7,7 @@ import { DataAdapter } from '../../data-adapter/data-adapter.service';
   templateUrl: './chat-room.component.html',
   styleUrls: ['./chat-room.component.scss']
 })
-export class ChatRoomComponent implements OnInit {
+export class ChatRoomComponent implements OnInit, OnDestroy {
 
   public roomId: number = null;
   public room = null;
@@ -28,11 +28,15 @@ export class ChatRoomComponent implements OnInit {
     private dataAdapter: DataAdapter,
     private _wsService: WebsocketService,
   ) {
-    // this.dataAdapter.selectRoom$.subscribe((roomId: number) => {
-    //   this.roomId = roomId;
+    this.dataAdapter.selectedRoom$.subscribe((user: any) => {
+      if (user == null) { return; }
 
-    //   this.createWsRoom();
-    // });
+      this.room = user;
+
+      console.log('ChatRoomComponent: ', user);
+
+      // this.createWsRoom();
+    });
   }
 
   ngOnInit(): void {}
@@ -43,6 +47,16 @@ export class ChatRoomComponent implements OnInit {
 
   public onSendMessage(event): void {
     console.log('onSendMessage: ', event);
+    // If room/user is not related to me then need to bind home to me
+    if (false) {
+      // Send the message
+    } else {
+      // Create new and send the message
+    }
+  }
+
+  ngOnDestroy() {
+    debugger;
   }
 
 }

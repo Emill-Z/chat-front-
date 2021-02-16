@@ -17,15 +17,17 @@ export class ChatsSidebarComponent {
   constructor(
     private readonly auth: AuthService,
     private readonly router: Router,
-    private _dataAdapter: DataAdapter,
+    private readonly dataAdapter: DataAdapter,
   ) {
-    this._dataAdapter.queryRooms().subscribe(({ data }) => {
-      this.availableRooms = data.rooms;
+    this.dataAdapter.queryUsers().subscribe(({ data }) => {
+      this.availableRooms = data?.users ?? null;
     });
   }
 
-  public onSelectNewRoom(id: number): void {
-    this._dataAdapter.joinRoom(id);
+  public onSelectNewRoom(user): void {
+    // this.dataAdapter.joinRoom(user.id);
+    console.log('onSelectNewRoom: ', user);
+    this.dataAdapter.selectUser(user);
   }
 
   public onSelectRoom(id: number): void {
